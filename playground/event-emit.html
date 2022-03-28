@@ -37,7 +37,7 @@
             }
         }
         
-        new Vue({
+        var vm = new Vue({
             el: '#app',
             components: {
                 'app-header': appHeader,
@@ -48,10 +48,13 @@
                     console.log('hi');
                 },
                 increaseNumber: function() {
+                    // this는 해당 객체를 가르킨다.
                     this.num = this.num + 1;               
                 }
             },
             data: {
+                // data 안에 선언을 했지만, 콘솔로 vm을 출력하면 num이 바로 보인다.
+                // => this.num은 data의 num을 가르킨다.
                 num: 10
             }
         });
