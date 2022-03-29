@@ -9,6 +9,7 @@
 <body>
     <div id="app">
         <button v-on:click="logText">click me</button>
+        <!-- 모디파이어를 이용하여 enter를 눌렀을 때만 이벤트가 발생하도록 지정 -->
         <input type="text" v-on:keyup.enter="logText">
     </div>
 
