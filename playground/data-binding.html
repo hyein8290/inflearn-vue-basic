@@ -8,7 +8,9 @@
 </head>
 <body>
     <div id="app">
-        <p>{{ num }}</p>
+        <!-- 화면에서 표현되는 텍스트 값 뿐만 아니라 전체적인 dom에 대한 정보들까지 reactive하게 반영됨-->
+        <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
+        <!-- <p id="abc1234">{{ num }}</p> -->
         <p>{{ doubleNum }}</p>
     </div>
 
@@ -17,7 +19,9 @@
         new Vue({
             el: '#app',
             data: {
-                num: 10
+                num: 10,
+                uuid: 'abc1234',
+                name: 'text-blue'
             },
             computed: {
                 doubleNum: function() {
