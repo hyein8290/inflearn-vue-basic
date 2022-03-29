@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Axios</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="getData">get user</button>
+        <div>
+            {{ users }}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                users: []
+            },
+            methods: {
+                getData: function () {
+                    // 이 곳의 this와 아래의 this가 다르다.
+                    // 호출하기 전 this: 인스턴스 or 컴포넌트를 가르키는 this
+                    // 꿀팁: this가 뭘 가르키는지 헷갈릴 때, console로 찍어보자!!
+                    // console.log(this);
+                    var vm = this;
+                    axios.get('https://jsonplaceholder.typicode.com/users/')
+                        .then(function (response) {
+                            console.log(response.data);
+                            // this.users = response.data;
+                            // 비동기 처리를 했을 때 실행 컨텍스트가 바뀌면서 this의 내용도 바뀐다.
+                            // console.log(this);
+                            vm.users = response.data;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
