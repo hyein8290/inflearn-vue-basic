@@ -12,6 +12,21 @@
         <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
         <!-- <p id="abc1234">{{ num }}</p> -->
         <p>{{ doubleNum }}</p>
+        <!-- 
+            만약 loading이 false라면
+            v-if는 태그를 완전히 제거,
+            v-show는 css display를 none으로 바꿈
+        -->
+        <div v-if="loading">
+            Loading...
+        </div>
+        <div v-else>
+            test user has been logged in
+        </div>
+        <div v-show="loading">
+            Loading...
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,7 +36,8 @@
             data: {
                 num: 10,
                 uuid: 'abc1234',
-                name: 'text-blue'
+                name: 'text-blue',
+                loading: true
             },
             computed: {
                 doubleNum: function() {
