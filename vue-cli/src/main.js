@@ -8,6 +8,7 @@ var App = {
 }
 
 new Vue({
+  //render = components 속성으로 매칭하는 것
   render: h => h(App),
   components: {
     'app': App
