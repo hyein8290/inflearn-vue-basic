@@ -1,18 +1,18 @@
 import Vue from 'vue'
-// import App from './App.vue' //컴포넌트 파일
+import App from './App.vue' //컴포넌트 파일
 
 Vue.config.productionTip = false
 
-var App = {
-  template: '<div>app</div>'
-}
+// var App = {
+//   template: '<div>app</div>'
+// }
 
 new Vue({
   //render == components 속성으로 매칭하는 것
   render: h => h(App),
-  components: {
-    'app': App
-  }
+  // components: {
+  //   'app': App
+  // }
 }).$mount('#app')
 
 // new Vue({
