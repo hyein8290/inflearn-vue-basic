@@ -15,7 +15,7 @@
 //   }
 // })
 
-// import 할 때, 확장자가까지 써주는 걸 권장. (vscode 기능 활용)
+// import 할 때, 확장자까지 써주는 걸 권장. (vscode 기능 활용)
 import AppHeader from './components/AppHeader.vue';
 
 // 예전 방식
